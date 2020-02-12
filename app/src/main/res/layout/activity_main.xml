@@ -11,7 +11,7 @@
         android:id="@+id/auto_upgrade_button"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="70dp"
         android:background="@color/buttonUnselectableBackground"
 
         android:onClick="buttonClicked"
@@ -23,13 +23,13 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/points_textview"
-        app:layout_constraintVertical_bias="0.715" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/points_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="116dp"
         android:gravity="center"
         android:text="0"
         android:textColor="@android:color/holo_green_light"
@@ -44,7 +44,7 @@
         android:id="@+id/auto_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
         android:text="0"
         android:textColor="@android:color/holo_green_light"
@@ -70,7 +70,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/points_textview"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintVertical_bias="0.358" />
 
     <Button
         android:id="@+id/upgrade_button"
@@ -85,9 +85,9 @@
         android:paddingRight="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/points_textview"
-        app:layout_constraintVertical_bias="0.502" />
+        app:layout_constraintVertical_bias="0.866" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

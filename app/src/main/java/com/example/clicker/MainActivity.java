@@ -2,12 +2,13 @@ package com.example.clicker;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity{
         autoRate = 0;
         currentAttack = 1;
         upgradeCost = 20;
-        autoUpgradeCost = 100;
+        autoUpgradeCost = 50;
         clickButton = (Button) findViewById(R.id.click_button);
         upgradeButton = (Button) findViewById(R.id.upgrade_button);
         autoUpgradeButton = (Button) findViewById(R.id.auto_upgrade_button);
@@ -53,15 +54,21 @@ public class MainActivity extends AppCompatActivity{
                 pointsTextView = (TextView) findViewById(R.id.points_textview);
                 points += Integer.parseInt(clickButton.getText().toString());
                 pointsTextView.setText(String.valueOf(Math.round(points)));
+
+                // Move main button by translation to randomize where it will be next
+                int randomX = new Random().nextInt(160 + 160) - 160;
+                int randomY = new Random().nextInt(160 + 160) - 160;
+                clickButton.setTranslationX(randomX);
+                clickButton.setTranslationY(randomY);
             break;
 
             // Run this code when the upgrade button is clicked
             case R.id.upgrade_button:
                 if (points >= upgradeCost) {
-                    currentAttack += 2;
+                    currentAttack += 1;
                     currentAttack *= 1.2;
                     points -= upgradeCost;
-                    upgradeCost *= 1.4;
+                    upgradeCost *= 2;
                     clickButton.setText(String.valueOf(currentAttack));
                 }
             break;
@@ -92,7 +99,7 @@ public class MainActivity extends AppCompatActivity{
             } else {
                 autoUpgradeButton.setBackgroundColor(getResources().getColor(R.color.buttonUnselectableBackground));
             }
-            if(points >= 100) {
+            if(points >= 50) {
                 autoUpgradeButton.setVisibility(View.VISIBLE);
             }
             if(autoRate >= 1) {
