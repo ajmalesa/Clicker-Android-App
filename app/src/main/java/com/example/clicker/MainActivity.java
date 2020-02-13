@@ -10,18 +10,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     private float points;
     private int currentAttack;
     private float autoRate;
     private int upgradeCost;
     private int autoUpgradeCost;
+
     Button clickButton;
     Button upgradeButton;
     Button autoUpgradeButton;
     TextView pointsTextView;
     TextView autoTextView;
+
     Handler handler = new Handler();
 
     @Override
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity{
         currentAttack = 1;
         upgradeCost = 20;
         autoUpgradeCost = 50;
+
         clickButton = (Button) findViewById(R.id.click_button);
         upgradeButton = (Button) findViewById(R.id.upgrade_button);
         autoUpgradeButton = (Button) findViewById(R.id.auto_upgrade_button);
@@ -45,10 +48,10 @@ public class MainActivity extends AppCompatActivity{
 
     /**
      * Run this code anytime a button is clicked
-     * @param view
      */
     public void buttonClicked(View view) {
-        switch(view.getId()) {
+        switch (view.getId()) {
+
             // Run this code when the main button is clicked
             case R.id.click_button:
                 pointsTextView = (TextView) findViewById(R.id.points_textview);
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity{
                 int randomY = new Random().nextInt(160 + 160) - 160;
                 clickButton.setTranslationX(randomX);
                 clickButton.setTranslationY(randomY);
-            break;
+                break;
 
             // Run this code when the upgrade button is clicked
             case R.id.upgrade_button:
@@ -71,7 +74,9 @@ public class MainActivity extends AppCompatActivity{
                     upgradeCost *= 2;
                     clickButton.setText(String.valueOf(currentAttack));
                 }
-            break;
+                break;
+
+            // Run this code when auto upgrade button is clicked
             case R.id.auto_upgrade_button:
                 if (points >= autoUpgradeCost) {
                     autoRate += 1;
@@ -79,7 +84,7 @@ public class MainActivity extends AppCompatActivity{
                     autoUpgradeCost *= 1.6;
                     autoUpgradeButton.setText("auto rate +1 costs " + String.valueOf(autoUpgradeCost));
                 }
-            break;
+                break;
         }
     }
 
@@ -89,20 +94,20 @@ public class MainActivity extends AppCompatActivity{
     private Runnable runnableCode = new Runnable() {
         @Override
         public void run() {
-            if(points >= upgradeCost) {
+            if (points >= upgradeCost) {
                 upgradeButton.setBackgroundColor(getResources().getColor(R.color.buttonBackground));
             } else {
                 upgradeButton.setBackgroundColor(getResources().getColor(R.color.buttonUnselectableBackground));
             }
-            if(points >= autoUpgradeCost) {
+            if (points >= autoUpgradeCost) {
                 autoUpgradeButton.setBackgroundColor(getResources().getColor(R.color.buttonBackground));
             } else {
                 autoUpgradeButton.setBackgroundColor(getResources().getColor(R.color.buttonUnselectableBackground));
             }
-            if(points >= 50) {
+            if (points >= 50) {
                 autoUpgradeButton.setVisibility(View.VISIBLE);
             }
-            if(autoRate >= 1) {
+            if (autoRate >= 1) {
                 autoTextView.setVisibility(View.VISIBLE);
             }
 
@@ -116,6 +121,5 @@ public class MainActivity extends AppCompatActivity{
             handler.postDelayed(this, 125);
         }
     };
-
 
 }
