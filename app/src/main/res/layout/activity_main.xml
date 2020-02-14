@@ -58,10 +58,10 @@
 
     <Button
         android:id="@+id/click_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="43dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="92dp"
-        android:background="@color/buttonBackground"
+        android:background="@drawable/image1"
         android:onClick="buttonClicked"
         android:text="1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,5 +87,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/points_textview"
         app:layout_constraintVertical_bias="0.866" />
+
+    <TextView
+        android:id="@+id/points_gained_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:text="+1"
+        android:textColor="@android:color/holo_green_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/click_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
